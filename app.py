@@ -798,7 +798,7 @@ elif page == "Feature Analysis":
             x=selected_feature,
             y='target',
             opacity=0.5,
-            trendline='lowess',
+            # trendline='lowess',
             title=f'{selected_feature} vs Target Price',
             labels={'target': 'Price (100k)'}
         )
@@ -967,4 +967,5 @@ st.divider()
 
 if __name__ == "__main__":
     about_the_coder()
+
 
