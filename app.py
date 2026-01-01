@@ -8,7 +8,7 @@ from plotly.subplots import make_subplots
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 import warnings
-
+import joblib
 warnings.filterwarnings('ignore')
 
 # Page configuration
@@ -20,12 +20,12 @@ st.set_page_config(
 
 # Load model and data
 try:
-    with open('random_forest_model.pkl', 'rb') as f:
-        model_artifacts = pickle.load(f)
+    model_artifacts = joblib.load('random_forest_model.joblib')
+    model_artifacts = joblib.load(f)
     model = model_artifacts['model']
     scaler = model_artifacts['scaler']
 except FileNotFoundError:
-    st.error("Model file 'random_forest_model.pkl' not found. Please train the model first.")
+    st.error("Model file 'random_forest_model.joblib' not found. Please train the model first.")
     st.stop()
 
 try:
