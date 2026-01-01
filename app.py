@@ -21,7 +21,6 @@ st.set_page_config(
 # Load model and data
 try:
     model_artifacts = joblib.load('random_forest_model.joblib')
-    model_artifacts = joblib.load(f)
     model = model_artifacts['model']
     scaler = model_artifacts['scaler']
 except FileNotFoundError:
@@ -968,3 +967,4 @@ st.divider()
 
 if __name__ == "__main__":
     about_the_coder()
+
